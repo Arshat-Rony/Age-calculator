@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!doctype html>
+    <html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- animate link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <script src="js/project01.js defer"></script>
+        <title>Age Calculator!!</title>
+        <style>
+            #result {
+                width: 200px;
+                height: 200px;
+                background: red;
+                border-radius: 8px;
+                font-size: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            .p {
+                color: rgb(37, 19, 117);
+                font-size: 2rem;
+                animation: zoomIn;
+                animation-duration: 4s;
+                animation-direction: alternate;
+                animation-timing-function: ease-in;
+                animation-iteration-count: infinite;
+
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <section>
+            <div class="container text-center mt-5">
+                <h1>Your age in days </h1>
+                <form class="mt-5 ageform">
+                    <input class="birthdate" type="number" name="number" placeholder="Give your Birthyear">
+                    <input class=" runningyear mt-3" type="number" name="number" placeholder="Set running Year">
+                    <div class="btnbox">
+                        <button class="btn btn-lg btn-primary px-3 mt-5">See age</button>
+                        <button class="btn btn-danger btn-lg px-3 mx-3 mt-5">reset</button>
+                    </div>
+                </form>
+
+
+
+            </div>
+            <div class="container mt-5 d-flex justify-content-center align-items-center">
+                <div id="result" class="bg-secondary ">
+                    <p class="p  text-center  ">Displaying age</p>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            var buttonAge = document.querySelector(".btn-primary");
+            var form = document.querySelector(".ageform");
+
+            buttonAge.addEventListener("click", function (e) {
+                e.preventDefault();
+                var birthYear = form[0].value;
+                var newYear = form[1].value;
+                form[0].value = "";
+                form[1].value = "";
+                var ans = newYear - birthYear;
+                var ans2 = ans * 365;
+                var ans3 = ans * 12;
+
+
+
+                var result = document.querySelector(".p");
+                result.style.backgroundColor = "red"
+                result.style.padding = "10px"
+                result.innerHTML = `
+                            ${ans} years 
+                            ${ans2} days 
+                            ${ans3} months`;
+
+
+            })
+            var reset = document.querySelector(".btn-danger");
+
+            reset.addEventListener("click", function (e) {
+                e.preventDefault();
+                result.innerHTML = '';
+            })
+        </script>
+
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+    </body>
+
+    </html>
+</body>
+
+</html>
